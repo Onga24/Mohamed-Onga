@@ -129,6 +129,8 @@ export class QuickAddComponent extends Component {
    */
   handleClick = async (event) => {
     event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation?.();
 
     const currentUrl = this.productPageUrl;
 
