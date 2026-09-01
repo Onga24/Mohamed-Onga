@@ -687,15 +687,11 @@
     .hero__content-wrapper .group-block-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
       gap: 0.6rem;
-    }
-
-    .hero__content-wrapper .group-block-content {
-      max-width: 100%;
       width: min(100%, 33rem);
-      margin-inline: auto;
+      margin-inline: 0;
     }
 
     .hero__content-wrapper .group-block-content :is(h1, h2, h3, .h1, .h2, .h3) {
@@ -703,14 +699,14 @@
       line-height: 0.85;
       letter-spacing: -0.06em;
       margin: 0;
-      text-align: center;
+      text-align: left;
       max-width: 100%;
     }
 
     .hero__content-wrapper .group-block-content :is(p, .rte, .hero__text) {
       display: inline-block;
       width: fit-content;
-      max-width: 100%;
+      max-width: min(100%, 20rem);
       margin: 0;
       padding: 0.2rem 0.55rem 0.35rem;
       background: rgba(24, 94, 201, 0.94);

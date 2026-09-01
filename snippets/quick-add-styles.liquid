@@ -53,25 +53,25 @@
   }
 
   button.quick-add__button {
-    --quick-add-collapsed-width: 1.45rem;
-    --quick-add-icon-width: 0.8rem;
+    --quick-add-collapsed-width: 2.25rem;
+    --quick-add-icon-width: 1rem;
     --quick-add-expanded-width: var(--quick-add-collapsed-width);
 
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0;
-    background: transparent;
+    background: #000;
     padding: 0;
-    border-radius: 0;
-    border: none;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.8);
     box-shadow: none;
     height: var(--quick-add-collapsed-width);
     width: var(--quick-add-collapsed-width);
     cursor: pointer;
     opacity: 1;
-    overflow: visible;
-    color: var(--quick-add-foreground, var(--color-foreground));
+    overflow: hidden;
+    color: #fff;
     pointer-events: all;
     position: absolute;
     inset-inline-end: 1rem;
@@ -102,11 +102,11 @@
       width: var(--quick-add-icon-width);
       height: var(--quick-add-icon-width);
       margin: 0;
-      color: #000;
+      color: #fff;
     }
 
     .svg-wrapper svg {
-      stroke-width: 1.7;
+      stroke-width: 1.8;
     }
 
     .quick-add[stay-visible] & {
@@ -161,6 +161,15 @@
 
   .quick-add-modal .media-gallery--carousel slideshow-component {
     --cursor: default;
+  }
+
+  @media screen and (max-width: 749px) {
+    button.quick-add__button {
+      --quick-add-collapsed-width: 2.1rem;
+      --quick-add-icon-width: 0.9rem;
+      inset-inline-end: 0.8rem;
+      inset-block-end: 0.8rem;
+    }
   }
 
   @media screen and (min-width: 750px) {
