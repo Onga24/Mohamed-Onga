@@ -109,6 +109,20 @@ export class QuickAddComponent extends Component {
     variantPicker.updateVariantPicker(newHtml);
   }
 
+  /** @returns {QuickAddDialog | null} */
+  #getQuickAddDialog() {
+    const dialogComponent = document.getElementById('quick-add-dialog');
+    if (!(dialogComponent instanceof HTMLElement)) return null;
+
+    if (customElements.get('quick-add-dialog')) {
+      customElements.upgrade(dialogComponent);
+    }
+
+    if (!(dialogComponent instanceof QuickAddDialog)) return null;
+
+    return dialogComponent;
+  }
+
   /**
    * Handles quick add button click
    * @param {Event} event - The click event
@@ -150,8 +164,8 @@ export class QuickAddComponent extends Component {
   };
 
   #resetScroll() {
-    const dialogComponent = document.getElementById('quick-add-dialog');
-    if (!(dialogComponent instanceof QuickAddDialog)) return;
+    const dialogComponent = this.#getQuickAddDialog();
+    if (!dialogComponent) return;
 
     const productDetails = dialogComponent.querySelector('.product-details');
     const productMedia = dialogComponent.querySelector('.product-information__media');
@@ -169,8 +183,8 @@ export class QuickAddComponent extends Component {
   }
 
   #openQuickAddModal = () => {
-    const dialogComponent = document.getElementById('quick-add-dialog');
-    if (!(dialogComponent instanceof QuickAddDialog)) return;
+    const dialogComponent = this.#getQuickAddDialog();
+    if (!dialogComponent) return;
 
     this.#stayVisibleUntilDialogCloses(dialogComponent);
 
@@ -184,8 +198,8 @@ export class QuickAddComponent extends Component {
   };
 
   #closeQuickAddModal = () => {
-    const dialogComponent = document.getElementById('quick-add-dialog');
-    if (!(dialogComponent instanceof QuickAddDialog)) return;
+    const dialogComponent = this.#getQuickAddDialog();
+    if (!dialogComponent) return;
 
     dialogComponent.closeDialog();
   };
