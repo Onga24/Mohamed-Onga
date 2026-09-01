@@ -1070,14 +1070,16 @@
     }
 
     .menu-drawer__announcement-button {
+      position: relative;
+      z-index: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
       width: min(100%, 22rem);
       min-height: 3.2rem;
-      background: #000;
-      color: #fff;
+      background: #f4e04d;
+      color: #000;
       border: 2px solid #000;
       text-decoration: none;
       text-transform: uppercase;
@@ -1085,6 +1087,29 @@
       letter-spacing: 0.06em;
       padding: 0.8rem 1.2rem;
       line-height: 1;
+      overflow: hidden;
+      transition: color 0.45s ease, border-color 0.45s ease;
+    }
+
+    .menu-drawer__announcement-button::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: #000;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1);
+      z-index: -1;
+    }
+
+    .menu-drawer__announcement-button:hover::before,
+    .menu-drawer__announcement-button:focus-visible::before {
+      transform: scaleX(1);
+    }
+
+    .menu-drawer__announcement-button:hover,
+    .menu-drawer__announcement-button:focus-visible {
+      color: #f4e04d;
     }
 
     .menu-drawer__announcement p {

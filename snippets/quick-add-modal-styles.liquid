@@ -211,6 +211,8 @@
     min-height: 0;
     overflow-y: auto;
     position: relative;
+    padding-inline: var(--padding-xl);
+    padding-block: var(--padding-xl) 0;
 
     dialog[open] & {
       animation: fadeSlideIn 0.3s var(--animation-timing-fade-in) both;
@@ -222,6 +224,8 @@
       grid-row: span 1;
       max-height: 100%;
       height: 100%;
+      padding-inline: 0;
+      padding-block: 0;
     }
   }
 
@@ -397,7 +401,7 @@
   .quick-add-modal__content .view-product-title {
     display: flex;
     padding-block: 0;
-    margin-block-end: 12px;
+    margin-block-end: 0.5rem;
 
     /* Prevent overlap between title and close button */
     padding-inline-end: calc(var(--padding-2xl) + calc(var(--minimum-touch-target) / 2));
@@ -407,11 +411,12 @@
     color: inherit;
     text-decoration: none;
     text-align: left;
-    font-size: var(--font-size--2xl);
+    font-size: clamp(1.6rem, 2vw, 2.5rem);
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.1;
     display: -webkit-box;
     -webkit-box-orient: vertical;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -420,6 +425,9 @@
 
   .quick-add-modal__content .product-details product-price {
     --text-align: left;
+    margin-block: 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
   }
 
   .quick-add-modal__content .product-details product-price.text-block--align-center {
