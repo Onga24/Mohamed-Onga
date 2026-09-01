@@ -99,6 +99,13 @@
         "
         aria-label="{{ 'accessibility.header_navigation_label' | t }}"
       >
+        <div class="menu-drawer__announcement">
+          <a class="menu-drawer__announcement-button" href="{{ routes.all_products_collection_url }}">
+            <span>Choose gift</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <p>Shop our latest arrivals!</p>
+        </div>
         <ul
           class="menu-drawer__menu has-submenu"
           role="list"
@@ -1026,6 +1033,10 @@
   }
 
   @media screen and (max-width: 749px) {
+    .announcement-bar {
+      display: none;
+    }
+
     .menu-drawer-container {
       width: auto;
     }
@@ -1037,13 +1048,52 @@
     .menu-drawer {
       width: 100vw;
       max-width: 100vw;
-      min-height: 100dvh;
+      min-height: calc(var(--header-height, 60px) + 13rem);
       border-right: none;
       background: rgba(245, 245, 245, 1);
     }
 
     .menu-drawer__navigation {
       padding-block-start: 0;
+      min-height: calc(var(--header-height, 60px) + 13rem);
+    }
+
+    .menu-drawer__announcement {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 1rem 1rem 0.85rem;
+      background: #f3f3f3;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .menu-drawer__announcement-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: min(100%, 22rem);
+      min-height: 3.2rem;
+      background: #000;
+      color: #fff;
+      border: 2px solid #000;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 0.8rem 1.2rem;
+      line-height: 1;
+    }
+
+    .menu-drawer__announcement p {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.3;
+      text-align: center;
+      color: #000;
+      font-style: italic;
     }
 
     .menu-drawer__menu {
