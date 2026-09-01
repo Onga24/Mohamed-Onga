@@ -17,11 +17,18 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Welcome new",
+            "text": "Find the ideal gift for your loved ones",
+             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
+            "weight": "",
             "letter_spacing": "normal",
-            "case": "none"
+            "case": "none",
+            "text_color": "",
+            "show_button": false,
+            "button_label": "Choose gift",
+            "button_background": "",
+            "button_text_color": ""
           },
           "blocks": {}
         }
@@ -33,8 +40,8 @@
       "settings": {
         "speed": 5,
         "section_width": "page-width",
-        "background_color": "{{ settings.color_palette.background }}",
-        "divider_width": 1,
+        "background_color": "light gray/off-white",
+        "divider_width": 0,
         "divider_color": "{{ settings.color_palette.color2 }}",
         "padding-block-start": 15,
         "padding-block-end": 15
@@ -53,35 +60,35 @@
           },
           "blocks": {}
         },
-        "header-menu": {
-          "type": "_header-menu",
-          "static": true,
-          "settings": {
-            "menu": "main-menu",
-            "type_font_primary_size": "0.875rem",
-            "menu_font_style": "inverse",
-            "type_font_primary_link": "body",
-            "type_case_primary_link": "none",
-            "menu_style": "featured_products",
-            "featured_products_aspect_ratio": "4 / 5",
-            "featured_collections_aspect_ratio": "16 / 9",
-            "image_border_radius": 0,
-            "navigation_bar": false,
-            "drawer_accordion": false,
-            "drawer_accordion_expand_first": false,
-            "drawer_dividers": false
-          },
-          "blocks": {}
-        }
+        // "header-menu": {
+        //   "type": "_header-menu",
+        //   "static": true,
+        //   "settings": {
+        //     "menu": "main-menu",
+        //     "type_font_primary_size": "0.875rem",
+        //     "menu_font_style": "inverse",
+        //     "type_font_primary_link": "body",
+        //     "type_case_primary_link": "none",
+        //     "menu_style": "featured_products",
+        //     "featured_products_aspect_ratio": "4 / 5",
+        //     "featured_collections_aspect_ratio": "16 / 9",
+        //     "image_border_radius": 0,
+        //     "navigation_bar": false,
+        //     "drawer_accordion": false,
+        //     "drawer_accordion_expand_first": false,
+        //     "drawer_dividers": false
+        //   },
+        //   "blocks": {}
+        // }
       },
       "settings": {
         "logo_position": "left",
         "menu_position": "left",
         "menu_row": "top",
-        "show_search": true,
+        "show_search": false,
         "search_position": "right",
         "search_row": "top",
-        "show_country": true,
+        "show_country": false,
         "country_selector_style": false,
         "show_language": true,
         "localization_font": "heading",
