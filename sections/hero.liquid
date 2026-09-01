@@ -689,6 +689,7 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      gap: 0.6rem;
     }
 
     .hero__content-wrapper .group-block-content {
@@ -701,20 +702,69 @@
       font-size: clamp(3.15rem, 11vw, 5rem);
       line-height: 0.85;
       letter-spacing: -0.06em;
-      margin: 0 0 0.6rem;
+      margin: 0;
       text-align: center;
       max-width: 100%;
     }
 
     .hero__content-wrapper .group-block-content :is(p, .rte, .hero__text) {
-      font-size: clamp(0.98rem, 3.8vw, 1.25rem);
-      line-height: 1.28;
+      display: inline-block;
+      width: fit-content;
+      max-width: 100%;
       margin: 0;
-      text-align: center;
-      max-width: 32rem;
+      padding: 0.2rem 0.55rem 0.35rem;
+      background: rgba(24, 94, 201, 0.94);
+      color: #fff;
+      font-size: clamp(1rem, 4vw, 1.45rem);
+      line-height: 1.28;
+      text-align: left;
       font-style: italic;
       font-weight: 400;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
     }
+  }
+
+  .hero .button,
+  .hero .button-secondary,
+  .hero .button-custom {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    background: #f4d43d;
+    color: #000;
+    border-radius: 1.5rem;
+    transition: color 0.45s ease, box-shadow 0.45s ease;
+  }
+
+  .hero .button::before,
+  .hero .button-secondary::before,
+  .hero .button-custom::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #000;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1);
+    z-index: -1;
+  }
+
+  .hero .button:hover::before,
+  .hero .button-secondary:hover::before,
+  .hero .button-custom:hover::before,
+  .hero .button:focus-visible::before,
+  .hero .button-secondary:focus-visible::before,
+  .hero .button-custom:focus-visible::before {
+    transform: scaleX(1);
+  }
+
+  .hero .button:hover,
+  .hero .button-secondary:hover,
+  .hero .button-custom:hover,
+  .hero .button:focus-visible,
+  .hero .button-secondary:focus-visible,
+  .hero .button-custom:focus-visible {
+    color: #f4d43d;
   }
 
   .hero__link {
