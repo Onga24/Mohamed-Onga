@@ -691,17 +691,29 @@
       text-align: center;
     }
 
+    .hero__content-wrapper .group-block-content {
+      max-width: 100%;
+      width: min(100%, 38rem);
+      margin-inline: auto;
+    }
+
     .hero__content-wrapper .group-block-content :is(h1, h2, h3, .h1, .h2, .h3) {
-      font-size: clamp(2.7rem, 9vw, 4.2rem);
-      line-height: 0.9;
+      font-size: clamp(3.15rem, 11vw, 5rem);
+      line-height: 0.85;
       letter-spacing: -0.06em;
-      margin: 0 0 0.5rem;
+      margin: 0 0 0.6rem;
+      text-align: center;
+      max-width: 100%;
     }
 
     .hero__content-wrapper .group-block-content :is(p, .rte, .hero__text) {
-      font-size: 1.2rem;
-      line-height: 1.4;
+      font-size: 1.13rem;
+      line-height: 1.32;
       margin: 0;
+      text-align: center;
+      max-width: 100%;
+      font-style: italic;
+      font-weight: 400;
     }
   }
 

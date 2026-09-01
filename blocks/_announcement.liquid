@@ -342,7 +342,7 @@
 .announcement-bar__content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1.5rem;
   width: 100%;
 }
@@ -363,6 +363,7 @@
   border: 2px solid #0d0d0d;
   line-height: 1;
   transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  order: 1;
 }
 
 .announcement-bar__button .svg-wrapper {
@@ -402,7 +403,16 @@
   }
 
   .announcement-bar__button {
-    width: auto;
+    width: min(100%, 22rem);
+    max-width: 22rem;
+    min-height: 3.25rem;
+    margin-inline: auto;
+    order: 1;
+  }
+
+  .announcement-bar__text {
+    order: 2;
+    width: 100%;
   }
 }
 {%endstylesheet%}
