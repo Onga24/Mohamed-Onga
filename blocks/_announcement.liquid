@@ -51,7 +51,20 @@
       {{ block.settings.text }}
     </p>
 
-    {% if block_settings.link != blank %}
+    {% if block_settings.show_button %}
+  <a
+    class="announcement-bar__button"
+    href="{{ block_settings.link | default: '#' }}"
+    style="
+      {% if block_settings.button_background != blank %}--button-bg: {{ block_settings.button_background }};{% endif %}
+      {% if block_settings.button_text_color != blank %}--button-color: {{ block_settings.button_text_color }};{% endif %}
+    "
+  >
+    {{ block_settings.button_label | default: 'Shop now' }}
+    <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+  </a>
+{% endif %}
+    {% comment %} {% if block_settings.link != blank %}
       {% if block_settings.show_button %}
         
           class="announcement-bar__button"
@@ -69,7 +82,7 @@
           <span class="visually-hidden">{{ block_settings.text | strip_html }}</span>
         </a>
       {% endif %}
-    {% endif %}
+    {% endif %} {% endcomment %}
   </slideshow-slide>
 {%- endunless -%}
 
