@@ -24,18 +24,7 @@
            
             "weight": "",
             "letter_spacing": "normal",
-            "case": "none",
-            "text_color": "",
-            "show_button": false,
-            "button_label": "Choose gift",
-            "button_background": "",
-            "button_text_color": ""
-            "case": "none",
-            "text_color": "",
-            "show_button": false,
-            "button_label": "Choose gift",
-            "button_background": "",
-            "button_text_color": ""
+           
           },
           "blocks": {}
         }
