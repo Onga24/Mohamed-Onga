@@ -18,7 +18,7 @@
           "settings": {
             "text": "<h4><strong>The Gift Guide</strong></h4>",
             "width": "fit-content",
-            "max_width": "narrow",
+            "max_width": "normal",
             "alignment": "left",
             "type_preset": "h2",
             "font": "var(--font-body--family)",
@@ -57,10 +57,10 @@
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 25,
-            "padding-inline-start": 38,
-            "padding-inline-end": 26
+            "padding-block-start": 6,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -72,9 +72,9 @@
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
-            "custom_button_background": "#E1C620",
+            "custom_button_background": "#e1c620",
             "custom_button_text": "{{ settings.color_palette.foreground }}",
-            "custom_button_border": "#FFEB66",
+            "custom_button_border": "#ffeb66",
             "link_text_color": "",
             "width": "custom",
             "custom_width": 12,
