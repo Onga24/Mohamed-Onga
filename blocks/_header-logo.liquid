@@ -85,7 +85,9 @@
 {% stylesheet %}
   .header-logo {
     display: flex;
-    height: 100%;
+    object-fit: contain;
+    height: auto;
+    width: 150px;
     font-size: var(--font-size--md);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
@@ -109,6 +111,8 @@
 
     @media screen and (max-width: 749px) {
       padding: 0;
+      height: auto;
+      width: 280px;
     }
 
     @media screen and (min-width: 750px) {
