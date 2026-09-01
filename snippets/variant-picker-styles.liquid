@@ -145,6 +145,12 @@
     border: none;
   }
 
+  .quick-add-modal .variant-option--buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
   .variant-option--buttons legend {
     padding: 0;
     margin-block-end: var(--margin-xs);
@@ -308,6 +314,25 @@
     @media screen and (min-width: 750px) {
       padding: var(--padding-xs) var(--variant-option-padding-inline);
     }
+  }
+
+  .quick-add-modal .variant-option__button-label {
+    min-width: 0;
+    width: 100%;
+    min-height: 3.15rem;
+    padding-block: 0.9rem;
+    padding-inline: 0.75rem;
+    font-size: 1.05rem;
+    border-radius: 0;
+    font-weight: 500;
+    border-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .quick-add-modal .variant-option__button-label[data-current-checked='true'],
+  .quick-add-modal .variant-option__button-label:has(input:checked) {
+    background: #000;
+    color: #fff;
+    border-color: #000;
   }
 
   /* wrap around only for 3 or more variants in a row */

@@ -6,7 +6,7 @@
 {%- assign plain_text = block_settings.text | strip_newlines | strip_html | strip -%}
 {%- assign block_index = section.blocks | find_index: 'id', block.id -%}
 
-{%- unless plain_text == '' -%}
+{% comment %} {%- unless plain_text == '' -%}
   <slideshow-slide
     ref="slides[]"
     class="
@@ -44,12 +44,62 @@
       </a>
     {% endif %}
   </slideshow-slide>
+{%- endunless -%} {% endcomment %}
+{%- unless plain_text == '' -%}
+  <slideshow-slide
+    ref="slides[]"
+    class="
+      announcement-bar__slide
+      text-block
+      text-block--{{ block.id }}
+      text-block--align-center
+      text-block--full-width
+      custom-typography
+      {% if block_settings.font_size != "" %}custom-font-size{% endif %}
+      {% if block_settings.weight != "" %}custom-font-weight{% endif %}
+    "
+    style="
+      {% render 'typography-style', settings: block_settings, preset: 'custom' %}
+      {% if block_settings.text_color != blank %}--color: {{ block_settings.text_color }}; --color-rgb: {{ block_settings.text_color.rgb }};{% endif %}
+      --width: 100%;
+      --text-align: center;
+      --line-height: 1;
+    "
+    {{ block.shopify_attributes }}
+    aria-hidden="{% if block_index == 0 %}false{% else %}true{% endif %}"
+  >
+    <div class="announcement-bar__content">
+      {% if block_settings.link != blank and block_settings.show_button %}
+        <a
+          class="announcement-bar__button"
+          href="{{ block_settings.link | default: '#' }}"
+          style="
+            {% if block_settings.button_background != blank %}--button-bg: {{ block_settings.button_background }};{% endif %}
+            {% if block_settings.button_text_color != blank %}--button-color: {{ block_settings.button_text_color }};{% endif %}
+          "
+        >
+          <span>{{ block_settings.button_label | default: 'Shop now' }}</span>
+          <span class="svg-wrapper" aria-hidden="true">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      {% endif %}
+
+      <p class="announcement-bar__text">
+        {{ block.settings.text }}
+      </p>
+    </div>
+
+    {% if block_settings.link != blank and block_settings.show_button == false %}
+      <a class="announcement-bar__link" href="{{ block_settings.link }}">
+        <span class="visually-hidden">{{ block_settings.text | strip_html }}</span>
+      </a>
+    {% endif %}
+  </slideshow-slide>
 {%- endunless -%}
 
 {% schema %}
 {
   "name": "t:names.announcement",
-  "tag": null,
+  "tag": "div",
   "settings": [
     {
       "type": "inline_richtext",
@@ -251,7 +301,31 @@
       "id": "text_color",
       "label": "t:settings.text_color",
       "placeholder": "t:settings.default"
-    }
+    },
+
+   {
+  "type": "checkbox",
+  "id": "show_button",
+  "label": "Show as button",
+  "default": true
+},
+{
+  "type": "text",
+  "id": "button_label",
+  "label": "Button label",
+  "default": "Choose gift"
+},
+{
+  "type": "color",
+  "id": "button_background",
+  "label": "Button background"
+},
+{
+  "type": "color",
+  "id": "button_text_color",
+  "label": "Button text"
+}
+
   ],
   "presets": [
     {
@@ -264,3 +338,101 @@
   ]
 }
 {% endschema %}
+{% stylesheet %}
+.announcement-bar__content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.announcement-bar__button {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--button-bg, #f4e04d);
+  color: var(--button-color, #000);
+  padding: 0.8rem 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border: 2px solid #0d0d0d;
+  line-height: 1;
+  overflow: hidden;
+  transition: color 0.45s ease, border-color 0.45s ease;
+  order: 1;
+}
+
+.announcement-bar__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1);
+  z-index: -1;
+}
+
+.announcement-bar__button:hover::before,
+.announcement-bar__button:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.announcement-bar__button .svg-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+}
+
+.announcement-bar__button .svg-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.announcement-bar__slide {
+  position: relative;
+}
+
+.announcement-bar__text {
+  margin: 0;
+  text-align: center;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.announcement-bar__button:hover,
+.announcement-bar__button:focus-visible {
+  --button-bg: #000;
+  --button-color: #f4e04d;
+}
+
+@media screen and (max-width: 749px) {
+  .announcement-bar__content {
+    justify-content: center;
+    gap: 0.75rem;
+    flex-direction: column;
+  }
+
+  .announcement-bar__button {
+    width: min(100%, 22rem);
+    max-width: 22rem;
+    min-height: 3.25rem;
+    margin-inline: auto;
+    order: 1;
+  }
+
+  .announcement-bar__text {
+    order: 2;
+    width: 100%;
+  }
+}
+{%endstylesheet%}

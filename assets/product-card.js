@@ -559,9 +559,11 @@ export class ProductCard extends ProductCardLink {
     if (this.hasAttribute('data-no-navigation')) return;
 
     const interactiveElement = event.target.closest('button, input, label, select, [tabindex="1"]');
+    const quickAddTrigger = event.target.closest('quick-add-component, .quick-add__button, .quick-add__button--choose');
 
     // If the click was on an interactive element, do nothing.
-    if (interactiveElement) {
+    // Quick-add buttons are handled by their own component and must not trigger card navigation.
+    if (interactiveElement || quickAddTrigger) {
       return;
     }
 

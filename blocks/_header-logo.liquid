@@ -76,7 +76,7 @@
         height: settings.logo_height,
         alt_text_fallback: alt_text_fallback,
         text_fallback: shop.name,
-        style: inverse_logo_style
+        style: inverse_logo_style,
       %}
     </span>
   {% endif %}
@@ -85,8 +85,12 @@
 {% stylesheet %}
   .header-logo {
     display: flex;
-    height: 100%;
-    font-size: var(--font-size--md);
+    object-fit: contain;
+    height: auto;
+    width: auto;
+    min-width: 0;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    line-height: 1;
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     font-style: var(--font-style);
@@ -109,6 +113,9 @@
 
     @media screen and (max-width: 749px) {
       padding: 0;
+      height: auto;
+      width: auto;
+      font-size: clamp(2rem, 7vw, 2.8rem);
     }
 
     @media screen and (min-width: 750px) {
@@ -122,12 +129,13 @@
 
   .header-logo__image {
     object-fit: contain;
-    height: var(--header-logo-image-height-mobile);
-    width: var(--header-logo-image-width-mobile);
+    height: clamp(36px, 3vw, 56px);
+    width: auto;
+    max-width: 220px;
 
-    @media screen and (min-width: 750px) {
-      height: var(--header-logo-image-height);
-      width: var(--header-logo-image-width);
+    @media screen and (max-width: 749px) {
+      height: clamp(28px, 7vw, 42px);
+      max-width: 150px;
     }
   }
 
