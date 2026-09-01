@@ -690,6 +690,19 @@
       align-items: center;
       text-align: center;
     }
+
+    .hero__content-wrapper .group-block-content :is(h1, h2, h3, .h1, .h2, .h3) {
+      font-size: clamp(2.7rem, 9vw, 4.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      margin: 0 0 0.5rem;
+    }
+
+    .hero__content-wrapper .group-block-content :is(p, .rte, .hero__text) {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin: 0;
+    }
   }
 
   .hero__link {

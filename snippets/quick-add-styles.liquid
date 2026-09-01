@@ -53,18 +53,18 @@
   }
 
   button.quick-add__button {
-    --quick-add-collapsed-width: 2.75rem;
-    --quick-add-icon-width: 1.125rem;
+    --quick-add-collapsed-width: 2.5rem;
+    --quick-add-icon-width: 1.1rem;
     --quick-add-expanded-width: var(--quick-add-collapsed-width);
 
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0;
-    background: rgba(255, 255, 255, 0.94);
+    background: rgba(255, 255, 255, 0.96);
     padding: 0;
     border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.85);
     height: var(--quick-add-collapsed-width);
     width: var(--quick-add-collapsed-width);
     cursor: pointer;
@@ -101,6 +101,11 @@
       width: var(--quick-add-icon-width);
       height: var(--quick-add-icon-width);
       margin: 0;
+      color: #000;
+    }
+
+    .svg-wrapper svg {
+      stroke-width: 2.1;
     }
 
     .quick-add[stay-visible] & {
